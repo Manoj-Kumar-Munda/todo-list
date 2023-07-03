@@ -97,7 +97,17 @@ body {
   justify-content: space-between;
   padding-inline: 12px;
   border-radius: 10px;
+  opacity: 0;
+  left: -50%;
+  /* transition: opacity 800ms ease-in, left 800ms ease-in; */
   /* animation: slide-in 800ms ease-in .3s forwards; */
+}
+
+.task-item.slideIn{
+  animation: slide-in 800ms ease-in 0s forwards;
+  /* opacity: 1;
+  left: 0; */
+
 }
 
 .task-item .completed{
