@@ -1,38 +1,125 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Josefin Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #121926;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+.wrapper {
+  /* border: 2px solid blueviolet; */
+  margin-block: 20px;
+  width: min(640px, 100%);
+  margin-inline: auto;
+  box-shadow: 0 0 15px #ad5389;
+
+  
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+
+.wrapper > * + *{
+  margin-block: 12px;
+}
+.wrapper .title {
+  padding-left: 8px;
+  border: 1px solid transparent;
+  background: #ad5389; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #3c1053,
+    #ad5389
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #3c1053, #ad5389);
+  text-align: start;
+  
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.title .heading {
+  line-height: 0.8;
+  color: aliceblue;
+}
+
+.content{
+  margin-inline: 12px;
+}
+
+
+
+.form{
+  /* border: 1px solid lawngreen; */
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.form .form-element{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+.form-element .form-input{
+  padding: 10px 6px;
+  width: 80%;
+  border: 0;
+  outline: none;
+  border-radius: 8px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.form-element .submit-btn{
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 8px;
+  background-color:#ad5389;
+  color: aliceblue;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.task-section{
+ margin: 24px 0; 
+ overflow: hidden;
+ display: flex;
+ flex-direction: column;
+ gap: 8px;
+}
+
+.task-item{
+  position: relative;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: space-between;
+  padding-inline: 12px;
+  border-radius: 10px;
+  /* animation: slide-in 800ms ease-in .3s forwards; */
+}
+
+.task-item .completed{
+  text-decoration: line-through;
+}
+
+@keyframes slide-in{
+  from{
+    opacity: 0;
+    left: -50%;
   }
-  to {
-    transform: rotate(360deg);
+  to{
+    opacity: 1;
+    left: 0;
   }
+}
+.task-item .icons{
+  display: flex;
+  gap: 16px;
+}
+
+.icons > *:hover{
+  cursor: pointer;
+  color: rgb(251, 36, 36);
 }
