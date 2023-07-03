@@ -30,6 +30,12 @@ const ToDoWrapper = () => {
       )
     );
   };
+
+  const deleteTask = (id) => {
+    setToDos(
+      toDos.filter( todo => todo.id !== id)
+    )
+  }
   console.log(toDos);
   return (
     <div className="wrapper">
@@ -47,6 +53,7 @@ const ToDoWrapper = () => {
                     key={uuidv4()}
                     toggleComplete={toggleComplete}
                     data={item}
+                    deleteTask={deleteTask}
                   />
                 );
               })}
