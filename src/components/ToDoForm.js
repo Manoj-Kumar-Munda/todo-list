@@ -1,29 +1,30 @@
 import React, { useState } from "react";
 
 const ToDoForm = ({addToDo}) => {
-  const [value, setValue] = useState("");
+    const [input, setInput] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    addToDo(value);
-    setValue("");
-  }
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        addToDo(input);
+        setInput("");
+    }
   return (
-    <form className="form" onSubmit={handleSubmit}>
-      <div className="form-element">
+    <>
+      <form className="flex focus-within:ring-4 ring-violet-700 rounded-lg" onSubmit={handleSubmit}>
         <input
-          className="form-input"
           type="text"
-          placeholder={`What's in your task today...`}
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
+          placeholder="Enter a task"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          className="text-sm w-full py-3 pl-3 outline-none rounded-lg rounded-r-none "
         />
-        <button className="submit-btn" type="submit">
-          Add
+        <button className=" bg-white rounded-r-lg px-2 border-l-2" type="submit">
+          <span className="text-violet-500 font-bold text-sm whitespace-nowrap">Add Task</span>
         </button>
-      </div>
-    </form>
+      </form>
+    </>
   );
 };
 
 export default ToDoForm;
+

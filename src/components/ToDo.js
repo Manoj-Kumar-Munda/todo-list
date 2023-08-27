@@ -1,34 +1,34 @@
-import { faPenToSquare } from '@fortawesome/free-regular-svg-icons'
-import { faTrash } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { useEffect, useState } from 'react'
+import React from "react";
 
-const ToDo = ({data, toggleComplete, deleteTask}) => {
-
-  // const [slideIn, setSlideIn] = useState(false)
-  
-  const {id, task, isCompleted, isEditing} = data;
-
-  // useEffect(
-  //   () => {
-  //     console.log("useEffect called")
-  //     setSlideIn(true)
-  //   },
-  //   []
-  // )
-
-  
-
-
+const ToDo = ({task, toggleComplete, deleteTask, editTask}) => {
+    console.log("Inside ToDo");
   return (
-    <div className='task-item slideIn'>
-      <p className={(isCompleted)?'completed':''} onClick={() => toggleComplete(id)}>{task}</p>
-      <div className='icons'>
-        <FontAwesomeIcon onClick={() => console.log('edit-btn clicked')} icon={faPenToSquare}/>
-        <FontAwesomeIcon onClick={() => deleteTask(id)} icon={faTrash} />
-      </div>
-    </div>
-  )
-}
+    <>
+      <div className="flex justify-between items-center py-2 px-2 border-b">
+        <span 
+          className={ task.completed ? "cursor-pointer [text-decoration:line-through]": "cursor-pointer"}
+          onClick={() => toggleComplete(task.id)}
+        >
+          {task.task}
+        </span>
 
-export default ToDo
+        <div className="space-x-2">
+          <button 
+            className="border px-4 py-1 font-semibold border-violet-600 rounded-lg"
+            onClick={() => editTask(task.id)}
+          >
+            Edit
+          </button>
+          <button 
+            className="border px-4 py-1 font-semibold border-violet-600 rounded-lg"
+            onClick={() => deleteTask(task.id)}
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default ToDo;
